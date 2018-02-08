@@ -5,8 +5,8 @@ This problem provides practice at:
   ***  SEQUENCES.  ***
 
 Authors: David Mutchler, Valerie Galluzzi, Mark Hays, Amanda Stouder,
-         their colleagues and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         their colleagues and Kyle Mehringer.
+"""  # Done: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 ########################################################################
 # Students:
@@ -142,6 +142,12 @@ def practice_problem4a(sequence):
     #    TIME ESTIMATE:   15 minutes.
     ####################################################################
 
+    # list = []
+    # for k in range(len(sequence)):
+    #     if sequence[k] == sequence[k + 1]:
+    #         list = list + [k]
+    # return list
+
 
 def run_test_practice_problem4b():
     """ Tests the    practice_problem4b    function. """
@@ -197,13 +203,19 @@ def practice_problem4b(sequence):
       :type sequence: (list | tuple) of (float | int)
     """
     # ------------------------------------------------------------------
-    # TODO: 3. Implement and test this function.
+    # Done: 3. Implement and test this function.
     #     The testing code is already written for you (above).
     ####################################################################
     # DIFFICULTY AND TIME RATINGS (see top of this file for explanation)
     #    DIFFICULTY:      5
     #    TIME ESTIMATE:   10 minutes.
     ####################################################################
+
+    largest = sequence[0]
+    for k in range(2, len(sequence), 2):
+        if sequence[k] > largest:
+            largest = sequence[k]
+    return largest
 
 
 def run_test_practice_problem4c():
@@ -391,13 +403,22 @@ def practice_problem4d(sequence):
       :rtype: int
     """
     ####################################################################
-    # TODO: 5. Implement and test this function.
+    # Done: 5. Implement and test this function.
     #     The testing code is already written for you (above).
     ####################################################################
     # DIFFICULTY AND TIME RATINGS (see top of this file for explanation)
     #    DIFFICULTY:      7
     #    TIME ESTIMATE:   15 minutes.
     ####################################################################
+
+    sum = 0
+    for k in range(len(sequence) - 1):
+        if is_prime(sequence[k]):
+            if is_prime(sequence[k + 1]):
+                if sequence[k] != sequence[k + 1]:
+                    sum = sum + sequence[k]
+    return sum
+
 
 
 # ----------------------------------------------------------------------
