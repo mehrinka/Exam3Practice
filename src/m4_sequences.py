@@ -134,7 +134,7 @@ def practice_problem4a(sequence):
       :type sequence: list | tuple | string
     """
     ####################################################################
-    # TODO: 2. Implement and test this function.
+    # Done: 2. Implement and test this function.
     #     The testing code is already written for you (above).
     ####################################################################
     # DIFFICULTY AND TIME RATINGS (see top of this file for explanation)
@@ -142,11 +142,11 @@ def practice_problem4a(sequence):
     #    TIME ESTIMATE:   15 minutes.
     ####################################################################
 
-    # list = []
-    # for k in range(len(sequence)):
-    #     if sequence[k] == sequence[k + 1]:
-    #         list = list + [k]
-    # return list
+    list = []
+    for k in range(len(sequence) - 1):
+        if sequence[k] == sequence[k + 1]:
+            list = list + [k]
+    return list
 
 
 def run_test_practice_problem4b():
@@ -307,7 +307,7 @@ def practice_problem4c(points):
       :rtype: rg.Point | string
     """
     ####################################################################
-    # TODO: 4. Implement and test this function.
+    # Done: 4. Implement and test this function.
     #     The testing code is already written for you (above).
     #
     # IMPORTANT: This problem is your LOWEST PRIORITY for preparing
@@ -318,6 +318,15 @@ def practice_problem4c(points):
     #    DIFFICULTY:      9
     #    TIME ESTIMATE:   15 minutes.
     ####################################################################
+
+    for k in range(len(points)):
+        if is_prime(points[k].x):
+            if is_prime(points[k].y):
+                x = points[k].x
+                points[k].x = points[k].y
+                points[k].y = x
+                return points[k]
+    return 'Not found'
 
 
 def run_test_practice_problem4d():
