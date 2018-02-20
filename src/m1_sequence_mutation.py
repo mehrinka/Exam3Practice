@@ -36,20 +36,20 @@ def run_test_zero_changer():
     # ------------------------------------------------------------------
 
     # Test 2:
-    test2 = ([0, 0, 0])
-    expected2 = ([1, 2, 3])
-    zero_changer(test1)
+    test2 = ([0, 0, 0], [1, 1, 1, 1, 1, 0, 0])
+    expected2 = ([1, 2, 3], [1, 1, 1, 1, 1, 4, 5])
+    zero_changer(test2)
     print()
-    print('Test 1:')
+    print('Test 2:')
     print('  Expected:', expected2)
     print('  Actual:  ', test2)
 
     # Test 3:
     test3 = ([0, 2, 4, 6, 8], [0, 0, 0, 0, 0], [9, 8, 7, 6, 5, 4, 3])
     expected3 = ([1, 2, 4, 6, 8], [2, 3, 4, 5, 6], [9, 8, 7, 6, 5, 4, 3])
-    zero_changer(test1)
+    zero_changer(test3)
     print()
-    print('Test 1:')
+    print('Test 3:')
     print('  Expected:', expected3)
     print('  Actual:  ', test3)
 
@@ -79,7 +79,7 @@ def zero_changer(tuple_of_lists):
       :type tuple_of_lists: tuple of list[int]
     """
     # ------------------------------------------------------------------
-    # TODO: 3. Implement and test this function.
+    # Done: 3. Implement and test this function.
     #   Note that you should write its TEST function first (above).
     # ------------------------------------------------------------------
     # ------------------------------------------------------------------
@@ -88,21 +88,29 @@ def zero_changer(tuple_of_lists):
     #    TIME ESTIMATE:  10 minutes.
     # ------------------------------------------------------------------
 
-    count = 0
+    # count = 0
+    # for k in range(len(tuple_of_lists)):
+    #     for j in range(tuple_of_lists[k]):
+    #         if count == 0:
+    #             if tuple_of_lists[k][j] == 0:
+    #                 tuple_of_lists[k][j] = 1
+    #                 count = count + 1
+    #         if count == 1:
+    #             if tuple_of_lists[k][j] == 0:
+    #                 tuple_of_lists[k][j] = 2
+    #                 count = count +1
+    #         if count == 2:
+    #             if tuple_of_lists[k][j] == 0:
+    #                 tuple_of_lists[k][j] = 3
+    #                 count = count + 1
+
+    count = 1
     for k in range(len(tuple_of_lists)):
-        for j in range(tuple_of_lists[k]):
-            if count == 0:
-                if tuple_of_lists[k][j] == 0:
-                    tuple_of_lists[k][j] = 1
-                    count = count + 1
-            if count == 1:
-                if tuple_of_lists[k][j] == 0:
-                    tuple_of_lists[k][j] = 2
-                    count = count +1
-            if count == 2:
-                if tuple_of_lists[k][j] == 0:
-                    tuple_of_lists[k][j] = 3
-                    count = count + 1
+        for j in range(len(tuple_of_lists[k])):
+            if tuple_of_lists[k][j] == 0:
+                tuple_of_lists[k][j] = count
+                count = count + 1
+
 
 
 # ----------------------------------------------------------------------

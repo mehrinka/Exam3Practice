@@ -220,6 +220,8 @@ def practice_problem3(start, n, threshold):
     ####################################################################
 
     list = []
+    if n == 0:
+        return []
     for k in range(start, start + n + 1):
         if (math.sin(k) + math.cos(k)) > threshold:
             list = list + [k]
