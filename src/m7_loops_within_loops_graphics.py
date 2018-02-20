@@ -216,7 +216,7 @@ def many_hourglasses(window, square, m, colors):
     for k in range(m):
         rectangle = rg.Rectangle(corner1, corner2)
         rectangle.attach_to(window)
-        hourglass(window, (k + 1), rectangle.get_center(), square.length_of_each_side // 2, colors[k])
+        hourglass(window, (k + 1), rectangle.get_center(), square.length_of_each_side // 2, colors[k % len(colors)])
         corner1.x = corner1.x + corner2.x - corner1.x
         corner2.x = corner2.x + square.length_of_each_side * (k + 2)
         corner1.y = corner1.y - math.sqrt(3) * square.length_of_each_side // 2
