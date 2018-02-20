@@ -220,11 +220,16 @@ def practice_problem3(start, n, threshold):
     ####################################################################
 
     list = []
-    if n == 0:
-        return []
-    for k in range(start, start + n + 1):
-        if (math.sin(k) + math.cos(k)) > threshold:
-            list = list + [k]
+    if n != 0:
+        if threshold > math.sqrt(2):
+            for k in range(n):
+                list.append(start + k)
+        else:
+            for k in range(start, start + n + 1):
+                if (math.sin(k) + math.cos(k)) > threshold:
+                    list.append(k)
+    else:
+        return list
     return list
 
 
