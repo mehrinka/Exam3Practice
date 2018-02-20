@@ -45,7 +45,7 @@ def main():
 def run_test_practice_problem3():
     """ Tests the   practice_problem3  function. """
     ####################################################################
-    # TODO: 2. Implement this TEST function.
+    # Done: 2. Implement this TEST function.
     #   It TESTS the  practice_problem3  function defined below.
     #   Include at least ** 2 ** ADDITIONAL tests beyond those we wrote.
     #
@@ -136,6 +136,16 @@ def run_test_practice_problem3():
     ####################################################################
 
     # Test 15
+    expected = [0, 1, 2]
+    answer = practice_problem3(0, 3, 0.4)
+    print('Expected:', expected)
+    print('Answer:  ', answer)
+
+    # Test 16
+    expected = [13, 14, 19, 20, 26]
+    answer = practice_problem3(9, 5, 1)
+    print('Expected:', expected)
+    print('Answer:  ', answer)
 
 
 def practice_problem3(start, n, threshold):
@@ -210,7 +220,7 @@ def practice_problem3(start, n, threshold):
       :type threshold: float
     """
     ####################################################################
-    # TODO: 3. Implement and test this function.
+    # Done: 3. Implement and test this function.
     #          Some tests are already written for you (above),
     #          but you are required to write ADDITIONAL tests (above).
     ####################################################################
@@ -220,16 +230,18 @@ def practice_problem3(start, n, threshold):
     ####################################################################
 
     list = []
+    count = 0
+    k = 0
     if n != 0:
         if threshold > math.sqrt(2):
             for k in range(n):
                 list.append(start + k)
         else:
-            for k in range(start, start + n + 1):
-                if (math.sin(k) + math.cos(k)) > threshold:
-                    list.append(k)
-    else:
-        return list
+            while count < n:
+                if math.cos(start + k) + math.sin(start + k) > threshold:
+                    list.append(start + k)
+                    count = count + 1
+                k = k + 1
     return list
 
 
